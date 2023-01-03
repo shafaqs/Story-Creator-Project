@@ -1,0 +1,8 @@
+User scenarios for tell-a-tale app
+Here are some possible user scenarios for the story creator app:
+Jane is an avid reader and is looking for new stories to read. She opens the app and browses through the list of stories on the homepage, filtering for only completed stories. She finds a story that interests her and clicks on it to start reading.
+Joe is a creative writer who loves to collaborate with others. He logs into the app and starts a new story, adding the first few paragraphs. He then invites his friends to contribute to the story by sharing the link to the story on social media.
+Rachel is one of Joe's friends who received the invitation to contribute to the story. She clicks on the link and reads through the existing story. She comes up with an idea for the next part of the story and adds it as a contribution. She then invites her own friends to contribute to the story.
+Kevin is a fan of the story that Rachel contributed to. He logs into the app and upvotes Rachel's contribution to show his support. He also adds his own contribution to the story and invites his friends to contribute as well.
+As the creator of the story, Joe reviews all the contributions and selects the one he thinks fits best with the direction of the story. He merges the contribution into the story and continues writing the next part.
+Sarah is a casual user of the app who enjoys reading completed stories. She logs into the app and browses the list of stories on the homepage. She finds a story that looks interesting and starts reading. As she reaches the end of the story, she sees that it has been marked as completed by the creator, so she knows that the story cannot be added to further.
