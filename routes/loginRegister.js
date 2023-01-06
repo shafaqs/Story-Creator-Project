@@ -2,7 +2,6 @@
 const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/loginRegister');
-const cookieParser = require('cookie-parser')
 
 // /login/:id
 router.get('/:id', (req, res) => {
