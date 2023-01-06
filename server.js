@@ -5,11 +5,13 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
-
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -51,3 +53,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+//Add comment - Delete later
