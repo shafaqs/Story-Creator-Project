@@ -13,16 +13,9 @@ const contributionsRoutes = require('../db/queries/getAllContributions');
 
 // stories page
 
-router.get('/', (req, res) => {
-  // const storyId = req.session.storyId;
-  // if (!storyId) {
-  //   res.error("💩");
-  //   return;
-  // }
-  const storyId = 1;
-  contributionsRoutes.getAllContributions(storyId)
+router.get('/:id', (req, res) => {
+  contributionsRoutes.getAllContributions(req.params.id)
     .then(contributions => {
-      console.log(contributions);
       res.json({ contributions });
     })
     .catch(err => {

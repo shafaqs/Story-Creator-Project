@@ -33,10 +33,10 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
-const loginRegisterRoutes = require("./routes/loginRegister")
-const storiesRoutes = require("./routes/stories-api")
-const singleStoryRoutes = require("./routes/single-story-api.js")
-const contributionsRoutes = require("./routes/contributions_api")
+const loginRegisterRoutes = require("./routes/loginRegister");
+const storiesRoutes = require("./routes/stories-api");
+const singleStoryRoutes = require("./routes/single-story-api.js");
+const contributionsRoutes = require("./routes/contributions_api");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own

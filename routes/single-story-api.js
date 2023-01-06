@@ -13,16 +13,9 @@ const singleStoryQueries = require('../db/queries/getSingleStory');
 
 // stories page
 
-router.get('/', (req, res) => {
-  // const storyId = req.session.storyId;
-  // if (!storyId) {
-  //   res.error("💩");
-  //   return;
-  // }
-  const storyId = 3;
-  singleStoryQueries.getSingleStory(storyId)
+router.get('/:id', (req, res) => {
+  singleStoryQueries.getSingleStory(req.params.id)
     .then(story => {
-      console.log(story);
       res.json({ story });
     })
     .catch(err => {

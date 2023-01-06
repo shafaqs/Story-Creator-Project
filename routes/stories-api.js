@@ -16,7 +16,6 @@ const storiesQueries = require('../db/queries/getAllStories');
 router.get('/', (req, res) => {
   storiesQueries.getAllStories()
     .then(stories => {
-      console.log(stories);
       res.json({ stories });
     })
     .catch(err => {
