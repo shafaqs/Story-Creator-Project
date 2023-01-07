@@ -17,6 +17,7 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script type="text/javascript" src="../public/scripts/app.js"></script>
 
 </head>
 
@@ -24,104 +25,33 @@
   <%- include('partials/header.ejs') %>
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-4 p-3">
-          <div class="card box-shadow">
-            <div class="card-body">
-              <h3 class="card-title">Story </h3>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros,
-                eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
-                facilisis.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                  <div class="completed"> Completed</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 p-3">
-          <div class="card box-shadow">
-            <div class="card-body">
-              <h3 class="card-title">Story </h3>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros,
-                eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
-                facilisis.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                  <div class="completed">Completed</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 p-3">
-          <div class="card box-shadow">
-            <div class="card-body">
-              <h3 class="card-title">Story </h3>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros,
-                eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
-                facilisis.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                  <div class="completed">On going</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-md-4 p-3">
-              <div class="card box-shadow">
-                <div class="card-body">
-                  <h3 class="card-title">Story</h3>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-                    eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
-                    feugiat facilisis.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                      <div class="completed">On going</div>
+      <span class="stories-list">
+        <div></div>
+        <% for (const story of stories) { %>
+          <div class="container mt-5">
+              <div class="row">
+                <div class="col-md-4 p-3">
+                  <div class="card box-shadow">
+                    <div class="card-body">
+                      <h3 class="card-title"> <%= story.title %> </h3>
+                      <p class="card-text"> <%= story.content %> </p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
+                          <% if (story.is_completed) { %>
+                            <div class="completed">Completed</div>
+                          <% } else { %>
+                            <div class="completed">On-going</div>
+                          <% } %>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4 p-3">
-              <div class="card box-shadow">
-                <div class="card-body">
-                  <h3 class="card-title">Story </h3>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-                    eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
-                    feugiat facilisis.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                      <div class="completed">On going</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 p-3">
-              <div class="card box-shadow">
-                <div class="card-body">
-                  <h3 class="card-title">Story</h3>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna
-                    eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis
-                    feugiat facilisis.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                      <div class="completed">On going</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <% } %>
+
+      <!-- <Append stories here> -->
+      </span>
 </body>
 
 </html>
