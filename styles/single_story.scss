@@ -44,3 +44,10 @@
   display: flex;
   float: right;
 }
+
+.compose-contribution {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  width: 60em !important;
+}

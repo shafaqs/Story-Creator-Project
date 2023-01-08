@@ -61,9 +61,19 @@
                 </div>
         <% } %>
               <!-- Page-specific (main) content here -->
-
         <div>
-      <!-- <Append stories here> -->
+      <!-- <Send your contributions here> -->
+        <div id="compose-contribution">
+        <h2 id="compose-contribution">Compose your contribution</h2>
+        <form id="compose-contribution" action="/contribution" method="POST">
+          <label for="tweet-text">Your story starts from here:</label>
+          <textarea name="text" id="contribution-text"></textarea>
+          <div>
+            <button type="submit" id="submit-new-contribution">Tell</button>
+            <output name="counter" class="counter" for="contribution-text" id="char-limit">250</output>
+          </div>
+        </form>
+        </div>
       </span>
 
 <!-- if not the story owner -->
@@ -99,7 +109,19 @@
               <!-- Page-specific (main) content here -->
 
         <div>
-      <!-- <Append stories here> -->
+      <!-- <Send your contributions here> -->
+       <div id="compose-contribution">
+        <h2 id="compose-contribution">Compose your contribution</h2>
+        <form id="compose-contribution" action="/contribution" method="POST">
+          <label for="tweet-text">Your story starts from here:</label>
+          <textarea name="text" id="contribution-text"></textarea>
+          <div>
+            <button type="submit" id="submit-new-contribution">Tell</button>
+            <output name="counter" class="counter" for="contribution-text" id="char-limit">250</output>
+          </div>
+        </form>
+       </div>
+
       </span>
   <% } %>
 </body>
