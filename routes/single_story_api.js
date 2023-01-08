@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
     .then(stories => {
       return contributionsRoutes.getAllContributions(req.params.id)
       .then(contribuitons => {
-        res.render("single_story_api", { story: stories[0], contributions: contribuitons});
+        res.render("single_story_api", { story: stories[0], contributions: contribuitons, cookies: req.cookies.user_id});
       });
     })
     .catch(err => {

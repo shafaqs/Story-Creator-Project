@@ -28,16 +28,16 @@
 
 .story-body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   float: left;
-  width: 33%;
+  width: 70% !important;
 }
 
 .contributions {
   display: flex;
   flex-direction: column;
   float: right;
-  width: 67%;
+  width: 60em !important;
 }
 
 .upvote {
