@@ -35,8 +35,7 @@ const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const loginRegisterRoutes = require("./routes/loginRegister");
 const storiesRoutes = require("./routes/stories-api");
-const singleStoryRoutes = require("./routes/single-story-api.js");
-const contributionsRoutes = require("./routes/contributions_api");
+const singleStoryRoutes = require("./routes/single_story_api.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -47,7 +46,6 @@ app.use('/users', usersRoutes);
 app.use("/login", loginRegisterRoutes);
 app.use("/api/stories", storiesRoutes);
 app.use("/api/story", singleStoryRoutes);
-app.use("/api/contributions", contributionsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
