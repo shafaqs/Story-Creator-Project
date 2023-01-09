@@ -37,6 +37,8 @@ const loginRegisterRoutes = require("./routes/loginRegister");
 const storiesRoutes = require("./routes/stories-api");
 const singleStoryRoutes = require("./routes/single-story-api.js");
 const contributionsRoutes = require("./routes/contributions_api");
+const { application } = require('express');
+const { Console } = require('console');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,6 +59,16 @@ app.use("/api/contributions", contributionsRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+app.get('/story/:id', (req, res) => {
+  // get the story data from the database
+  const story = getStoryById(req.params.id);
+
+  // render the 'popupStory' view and pass it the story data
+  res.render('popupStory', { story: story });
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -7,7 +7,7 @@
 
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const singleStoryQueries = require('../db/queries/getSingleStory');
 
 
@@ -16,7 +16,7 @@ const singleStoryQueries = require('../db/queries/getSingleStory');
 router.get('/:id', (req, res) => {
   singleStoryQueries.getSingleStory(req.params.id)
     .then(story => {
-      res.json({ story });
+      res.render('popupStory', { story: story });
     })
     .catch(err => {
       res

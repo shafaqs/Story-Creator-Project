@@ -22,36 +22,142 @@
 </head>
 
 <body>
+  <!-- <%- include('partials/header.ejs') %>
+    <div class="container mt-5">
+      <div class="row">
+        <span class="stories-list">
+          <div></div>
+          <% function maxLength(string, maxLength) { if (string.length> maxLength) {
+            return string.substring(0, maxLength) + '...';
+            } else {
+            return string;
+            }
+            }
+            %>
+            <% for (const story of stories) { %>
+              <div class="col-md-4 p-3">
+                <div class="card box-shadow">
+                  <div class="card-body">
+                    <h3 class="card-title">
+                      <%= story.title %>
+                    </h3>
+                    <p class="card-text">
+                      <%= maxLength(story.content, 200) %>
+                    </p>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
+                        <% if (story.is_completed) { %>
+                          <div class="completed">Completed</div>
+                          <% } else { %>
+                            <div class="completed">On-going</div>
+                            <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+        </span>
+      </div>
+    </div> -->
   <%- include('partials/header.ejs') %>
     <div class="container mt-5">
       <div class="row">
-      <span class="stories-list">
-        <div></div>
-        <% for (const story of stories) { %>
-          <div class="container mt-5">
+        <span class="stories-list">
+          <div></div>
+          <% function maxLength(string, maxLength) { if (string.length> maxLength) {
+            return string.substring(0, maxLength) + '...';
+            } else {
+            return string;
+            }
+            } %>
+            <% for (let i=0; i < stories.length; i +=3) { %>
               <div class="row">
-                <div class="col-md-4 p-3">
-                  <div class="card box-shadow">
-                    <div class="card-body">
-                      <h3 class="card-title"> <%= story.title %> </h3>
-                      <p class="card-text"> <%= story.content %> </p>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
-                          <% if (story.is_completed) { %>
-                            <div class="completed">Completed</div>
-                          <% } else { %>
-                            <div class="completed">On-going</div>
-                          <% } %>
+                <% for (let j=i; j < i + 3; j++) { if (j>= stories.length) break;
+                  const story = stories[j];
+                  %>
+                  <div class="col-md-4 p-3">
+                    <div class="card box-shadow">
+                      <div class="card-body">
+                        <h3 class="card-title">
+                          <%= story.title %>
+                        </h3>
+                        <p class="card-text">
+                          <%= maxLength(story.content, 100) %>
+                        </p>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Read</button> -->
+                            <form method="GET" action="/<%=story.id %>" src="../routes/single-story-api.js">
+                              <button type="submit">Reading</button>
+                            </form>
+                            <% if (story.is_completed) { %>
+                              <div class="completed">Completed</div>
+                              <% } else { %>
+                                <div class="completed">On-going</div>
+                                <% } %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+              </div>
+              <% } %>
+
+
+        </span>
+      </div>
+    </div>
+    <!-- <%- include('partials/header.ejs') %>
+    <div class="container mt-5">
+      <div class="row">
+        <span class="stories-list">
+          <div></div>
+          <% function maxLength(string, maxLength) { if (string.length> maxLength) {
+            return string.substring(0, maxLength) + '...';
+            } else {
+            return string;
+            }
+            }
+            %>
+            <div class="row">
+              <% for (const story of stories) { %>
+                <div class="story-box">
+                  <div class="col-md-4 p-3">
+                    <div class="card box-shadow">
+                      <div class="card-body">
+                        <h3 class="card-title">
+                          <%= story.title %>
+                        </h3>
+                        <p class="card-text">
+                          <%= maxLength(story.content, 100) %>
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
+                            <% if (story.is_completed) { %>
+                              <div class="completed">Completed</div>
+                              <% } else { %>
+                                <div class="completed">On-going</div>
+                                <% } %>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-        <% } %>
+                <% } %>
+            </div>
+            <!-- <Append stories here> -->
+    <!-- </span>
+      </div>
+    </div> --> -->
 
-      <!-- <Append stories here> -->
-      </span>
+
 </body>
 
 </html>
