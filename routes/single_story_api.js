@@ -9,14 +9,18 @@
 const express = require('express');
 const router  = express.Router();
 const singleStoryQueries = require('../db/queries/getSingleStory');
+const contributionsRoutes = require('../db/queries/getAllContributions');
 
 
 // stories page
 
 router.get('/:id', (req, res) => {
   singleStoryQueries.getSingleStory(req.params.id)
-    .then(story => {
-      res.json({ story });
+    .then(stories => {
+      return contributionsRoutes.getAllContributions(req.params.id)
+      .then(contribuitons => {
+        res.render("single_story_api", { story: stories[0], contributions: contribuitons, cookies: req.cookies.user_id});
+      });
     })
     .catch(err => {
       res

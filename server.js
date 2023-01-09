@@ -6,10 +6,13 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const cookieParser = require('cookie-parser');
+
 
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -33,10 +36,8 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
-const loginRegisterRoutes = require("./routes/loginRegister");
 const storiesRoutes = require("./routes/stories-api");
-const singleStoryRoutes = require("./routes/single-story-api.js");
-const contributionsRoutes = require("./routes/contributions_api");
+const singleStoryRoutes = require("./routes/single_story_api.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -44,22 +45,23 @@ const contributionsRoutes = require("./routes/contributions_api");
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-app.use("/login", loginRegisterRoutes);
-app.use("/api/stories", storiesRoutes);
+app.use("/", storiesRoutes);
 app.use("/api/story", singleStoryRoutes);
-app.use("/api/contributions", contributionsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
-
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-//Add comment - Delete later
+app.get('/login/:id', (req, res) => {
+
+  // using plain-text cookies
+  res.cookie('user_id', req.params.id);
+
+  // send the user somewhere
+  res.redirect('/');
+});

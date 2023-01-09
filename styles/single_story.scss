@@ -1,0 +1,53 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+ /*
+  * article layout stuff
+  */
+
+  head {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+
+  body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-self: flex-end;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+.story-body {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  width: 70% !important;
+}
+
+.contributions {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  width: 60em !important;
+}
+
+.upvote {
+  display: flex;
+  float: right;
+}
+
+.compose-contribution {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  width: 60em !important;
+}
