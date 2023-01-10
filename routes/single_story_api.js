@@ -11,16 +11,22 @@ const router  = express.Router();
 const singleStoryQueries = require('../db/queries/getSingleStory');
 const contributionsRoutes = require('../db/queries/getAllContributions');
 
-
 // stories page
 
 router.get('/:id', (req, res) => {
-  singleStoryQueries.getSingleStory(req.params.id)
+  const id = req.params.id;
+  singleStoryQueries.getSingleStory(id)
     .then(stories => {
-      return contributionsRoutes.getAllContributions(req.params.id)
-      .then(contribuitons => {
-        res.render("single_story_api", { story: stories[0], contributions: contribuitons, cookies: req.cookies.user_id});
-      });
+      if (stories[0].is_completed, id == true) {
+          // just render the story data
+          res.render("completed_single_story_api", { story: stories[0] });
+        } else {
+          // render the story data and contributions
+            contributionsRoutes.getAllContributions(id)
+            .then(contribuitons => {
+              res.render("ongoing_single_story_api", { story: stories[0], contributions: contribuitons, cookies: req.cookies.user_id});
+            });
+      }
     })
     .catch(err => {
       res
