@@ -57,7 +57,9 @@
                       <h3 class="card-title"> <%= contibution.contributor_name %> </h3>
                         <p class="card-text"> <%= contibution.content  %> </p>
                           <p class="card-text upvote"> <i class="fa-solid fa-heart"></i> <%= contibution.upvote_count  %> </p>
+                          <form action="/acceptContribution/<%= contribution.id %>" method="POST">
                           <div><button type="submit" id="accept-vote">Accept contribution</button> </div>
+                          </form>
                     </div>
                   </div>
                 </div>

@@ -8,21 +8,22 @@
 
 const express = require('express');
 const router  = express.Router();
-const storiesQueries = require('../db/queries/getAllStories');
-
+const markAsCompleted = require('../db/queries/markAsCompleted');
 
 // stories page
 
-router.get('/', (req, res) => {
-  storiesQueries.getAllStories()
-    .then(stories => {
-      res.render("stories_api", { stories, cookies: req.cookies.user_id });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+router.post('/:id', (req, res) => {
+
+  const storyId = req.params.id;
+
+  markAsCompleted.markAsCompleted(storyId)
+  .then(res.redirect(`/api/story/${storyId}`))
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+
 });
 
 module.exports = router;

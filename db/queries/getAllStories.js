@@ -8,7 +8,7 @@ const db = require('../connection');
  * @return {Promise<[{}]>}  A promise to the stories.
  */
 
- const getAllStories = function(limit = 10) {
+ const getAllStories = function(limit = 6) {
   return db.query(`SELECT stories.id as id, name, title, content, is_completed
                    FROM stories
                    JOIN users ON users.id = creator_id
