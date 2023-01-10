@@ -40,6 +40,7 @@ const storiesRoutes = require("./routes/stories-api");
 const singleStoryRoutes = require("./routes/single_story_api.js");
 const getYourStories = require("./routes/user-stories-api.js");
 const postContribution = require("./routes/post_contribution.js");
+const markAsCompleted = require("./routes/mark_as_completed.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +52,7 @@ app.use("/", storiesRoutes);
 app.use("/api/story", singleStoryRoutes);
 app.use('/api/stories/user', getYourStories);
 app.use('/contribution', postContribution);
+app.use('/markAsCompleted', markAsCompleted);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

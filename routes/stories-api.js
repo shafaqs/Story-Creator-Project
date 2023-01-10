@@ -16,6 +16,7 @@ const storiesQueries = require('../db/queries/getAllStories');
 router.get('/', (req, res) => {
   storiesQueries.getAllStories()
     .then(stories => {
+      console.log(stories);
       res.render("stories_api", { stories, cookies: req.cookies.user_id });
     })
     .catch(err => {

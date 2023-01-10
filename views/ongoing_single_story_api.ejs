@@ -42,7 +42,9 @@
                   <h3 class="card-title"> <%= story.name %>  </h3>
                   <h3 class="card-title"> <%= story.title %> </h3>
                     <p class="card-text"> <%= story.content  %> </p>
+                  <form action="/markAsCompleted/<%= story.id %>" method="POST">
                   <div><button type="submit" id="mark-as-complete">Mark as completed</button> </div>
+                  </form>
               </div>
             </div>
         <div class="contributions">
