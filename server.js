@@ -65,3 +65,10 @@ app.get('/login/:id', (req, res) => {
   // send the user somewhere
   res.redirect('/');
 });
+
+app.get('/story/:id', (req, res) => {
+
+  const storyId = req.params.id;
+  res.redirect(`/api/story/${storyId}`);
+  // send the user somewhere
+});

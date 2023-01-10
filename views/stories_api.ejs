@@ -40,12 +40,16 @@
                         <p class="card-text"> <%= story.content  %> </p>
                         <div class="d-flex justify-content-between align-items-center">
                           <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">To Read</button>
+                            <form action= "/story/<%= story.id %>" method="get">
+                              <button type="submit" class="btn btn-sm btn-outline-secondary">To Read</button>
+                            </form>
                       <% } else { %>
                         <p class="card-text"> <%= story.content.substring(0,300)  %> ...... </p>
                         <div class="d-flex justify-content-between align-items-center">
                           <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">To Read more</button>
+                            <form action= "/story/<%= story.id %>" method="get">
+                              <button type="submit" class="btn btn-sm btn-outline-secondary">To Read more</button>
+                            </form>
                       <% } %>
 
                             <% if (story.is_completed) { %>
