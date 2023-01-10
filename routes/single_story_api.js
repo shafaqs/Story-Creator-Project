@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
     .then(stories => {
       if (stories[0].is_completed, id == true) {
           // just render the story data
-          res.render("completed_single_story_api", { story: stories[0] });
+          res.render("completed_single_story_api", { story: stories[0], cookies: req.cookies.user_id});
         } else {
           // render the story data and contributions
             contributionsRoutes.getAllContributions(id)
