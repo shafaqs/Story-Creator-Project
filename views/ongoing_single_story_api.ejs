@@ -65,7 +65,7 @@
       <!-- <Send your contributions here> -->
         <div id="compose-contribution">
         <h2 id="compose-contribution">Compose your contribution</h2>
-        <form id="compose-contribution" action="/contribution" method="POST">
+        <form id="compose-contribution" action="/contribution/<%= story.id %>" method="POST">
           <label for="tweet-text">Your story starts from here:</label>
           <textarea name="text" id="contribution-text"></textarea>
           <div>
@@ -112,7 +112,7 @@
       <!-- <Send your contributions here> -->
        <div id="compose-contribution">
         <h2 id="compose-contribution">Compose your contribution</h2>
-        <form id="compose-contribution" action="/contribution" method="POST">
+        <form id="compose-contribution" action="/contribution/<%= story.id%>" method="POST">
           <label for="tweet-text">Your story starts from here:</label>
           <textarea name="text" id="contribution-text"></textarea>
           <div>

@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
   const id = req.params.id;
   singleStoryQueries.getSingleStory(id)
     .then(stories => {
-      if (stories[0].is_completed, id == true) {
+      if (stories[0].is_completed == true) {
           // just render the story data
           res.render("completed_single_story_api", { story: stories[0], cookies: req.cookies.user_id});
         } else {
