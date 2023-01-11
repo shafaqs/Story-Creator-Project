@@ -8,21 +8,25 @@
 
 const express = require('express');
 const router  = express.Router();
-const markAsCompleted = require('../db/queries/markAsCompleted');
+const acceptContribution = require('../db/queries/acceptContribution');
+const getContributionById = require('../db/queries/getContributionById');
 
-// stories page
-
+//acceptContribution/:id
 router.post('/:id', (req, res) => {
 
-  const storyId = req.params.id;
+  getContributionById.getContributionById(req.params.id)
+  .then(content => {
+    console.log("content in post: ", content)
+    acceptContribution.acceptContribution(content, 1) //NOTE: Need a way to get story_id
+    .then(
+      res.redirect(req.get('referer'))) //Redirects to current page
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+      })
 
-  markAsCompleted.markAsCompleted(storyId)
-  .then(res.redirect(`/api/story/${storyId}`))
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    });
 
 });
 

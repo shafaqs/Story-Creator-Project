@@ -7,16 +7,16 @@ const db = require('../connection');
  * @param {string} story_id The id of the story.
  * @return {Promise<[{}]>} A promise to the contributions.
  */
- const markAsCompleted = function(story_id) {
+ const acceptContribution = function(contribution, story_id) {
   return db.query(`UPDATE stories
-                   SET is_completed = TRUE
-                   WHERE id = $1;`, [story_id])
+                   SET content = content || $1
+                   WHERE id = $2;`, [contribution, story_id])
     .then(
-      console.log(`Mark story # ${story_id} as completed.`)
+      console.log(`Story ${story_id} has received addition of ${contribution}`)
       )
     .catch((err) => {
       console.log(err.message);
     });
 }
 
-module.exports = { markAsCompleted };
+module.exports = { acceptContribution };
