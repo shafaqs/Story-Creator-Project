@@ -41,6 +41,12 @@
                   <h3 class="card-title"> <%= story.name %>  </h3>
                   <h3 class="card-title"> <%= story.title %> </h3>
                     <p class="card-text"> <%= story.content  %> </p>
+                    <% if (story.tales) { %>
+                      <% for (let i = 0; i < story.tales.length; i++) { %>
+                        <h3 class="card-teller"> <%= story.tellers[i] %> </h3>
+                        <p class="card-tale"> <%= story.tales[i] %> </p>
+                      <% } %>
+                    <% } %>
               </div>
             </div>
         <div>

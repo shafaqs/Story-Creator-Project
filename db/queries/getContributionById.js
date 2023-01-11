@@ -7,11 +7,11 @@ const db = require('../connection');
  * @return {Promise<[{}]>} A promise to the contributions.
  */
  const getContributionById = function(contribution_id) {
-  return db.query(`SELECT content
+  return db.query(`SELECT content, owner_id
     FROM contributions
     WHERE id = $1`, [contribution_id])
     .then((result) => {
-      return result.rows[0].content;
+      return result.rows;
     })
     .catch((err) => {
       console.log(err.message);

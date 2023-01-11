@@ -12,6 +12,7 @@ const acceptContribution = require('../db/queries/acceptContribution');
 const getContributionById = require('../db/queries/getContributionById');
 const getStoryId = require('../db/queries/getStoryId');
 const inactivateContribution = require('../db/queries/inactivateContribution');
+const acceptContributor = require('../db/queries/acceptContributor');
 
 //acceptContribution/:id
 router.post('/:id', (req, res) => {
@@ -19,15 +20,19 @@ router.post('/:id', (req, res) => {
   const contributionId = req.params.id;
 
   getContributionById.getContributionById(contributionId)
-    .then(content => {
-      console.log("content in post: ", content);
+    .then(contributionObject => {
+      console.log("content in post: ", contributionObject);
+      const content = contributionObject[0].content;
+      const contributorId = contributionObject[0].owner_id;
       getStoryId.getStoryId(contributionId)
         .then(storyObject => {
           const storyId = storyObject[0].story_id;
           acceptContribution.acceptContribution(content, storyId)
-            .then(inactivateContribution.inactivateContribution(storyId)
-              .then(res.redirect(`/api/story/${storyObject[0].story_id}`))
-              )//Redirects to current page
+            .then(acceptContributor.acceptContributor(contributorId, storyId)
+              .then(inactivateContribution.inactivateContribution(storyId)
+                .then(res.redirect(`/api/story/${storyObject[0].story_id}`))
+              )
+            )
         })
     })
     .catch(err => {

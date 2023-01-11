@@ -11,7 +11,7 @@ const Promise = require('promise');
 
 
  const getSingleStory = function(story_id) {
-  return db.query(`SELECT stories.id as id, users.id as user_id, name, title, content, tales, is_completed
+  return db.query(`SELECT stories.id as id, users.id as user_id, name, title, content, tellers, tales, is_completed
                    FROM stories
                    JOIN users ON users.id = creator_id
                    WHERE stories.id = $1;`, [story_id])

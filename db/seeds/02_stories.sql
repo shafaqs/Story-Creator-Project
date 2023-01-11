@@ -25,6 +25,6 @@
     VALUES (
     8, 'The Outing', 'An outburst of anger near the road, a refusal to speak on the path, a silence in the pine woods, a silence across the old railroad bridge, an attempt to be friendly in the water, a refusal to end the argument on the flat stones, a cry of anger on the steep bank of dirt, a weeping among the bushes.', '2022-10-01', TRUE);
     INSERT INTO stories (
-    creator_id, title, content, update, is_completed)
+    creator_id, title, content, update, is_completed, tellers, tales)
     VALUES (
-    5, 'Odd Behavior', 'You see how circumstances are to blame. I am not really an odd person if I put more and more small pieces of shredded kleenex in my ears and tie a scarf around my head: when I lived alone I had all the silence I needed.', '2022-08-25', TRUE);
+    5, 'Odd Behavior', 'You see how circumstances are to blame. I am not really an odd person if I put more and more small pieces of shredded kleenex in my ears and tie a scarf around my head: when I lived alone I had all the silence I needed.', '2022-08-25', TRUE, ARRAY ['Tiffany'], ARRAY ['Nearly every morning, a certain woman in our community comes running out of her house with her face white and her overcoat flapping wildly. She cries out, “Emergency, emergency,” and one of us runs to her and holds her until her fears are calmed. We know she is making it up; nothing has really happened to her. But we understand, because there is hardly one of us who has not been moved at some time to do just what she has done, and every time, it has taken all our strength, and even the strength of our friends and families too, to quiet us.']);

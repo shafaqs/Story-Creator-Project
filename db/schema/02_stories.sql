@@ -7,6 +7,7 @@ CREATE TABLE stories (
 
   title VARCHAR(255) NOT NULL,
   content TEXT,
+  tellers TEXT [],
   tales TEXT [],
   update DATE NOT NULL,
   is_completed BOOLEAN NOT NULL DEFAULT FALSE
