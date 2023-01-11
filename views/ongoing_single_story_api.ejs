@@ -48,16 +48,36 @@
               </div>
             </div>
         <div class="contributions">
-        <% for (const contibution of contributions) { %>
+        <% for (const contribution of contributions) { %>
           <div class="container mt-5 contribution-body">
               <div class="row">
                 <div class="col-md-4 p-3">
                   <div class="card box-shadow">
                     <div class="card-body">
-                      <h3 class="card-title"> <%= contibution.contributor_name %> </h3>
-                        <p class="card-text"> <%= contibution.content  %> </p>
-                          <p class="card-text upvote"> <i class="fa-solid fa-heart"></i> <%= contibution.upvote_count  %> </p>
-                          <form action="/acceptContribution/<%= contibution.contribution_id %>" method="POST">
+                      <h3 class="card-title"> <%= contribution.contributor_name %> </h3>
+                        <p class="card-text"> <%= contribution.content  %> </p>
+                          <% let checkUpvote = false %>
+                          <% for (const user of contribution.upvote_users) { %>
+                            <% if (cookies == user) { %>
+                              <% checkUpvote = true %>
+                            <% } %>
+                          <% } %>
+                          <% if (checkUpvote == true) { %>
+                            <form action="/downvote/<%= contribution.contribution_id %>" method="POST">
+                              <button type="submit" id="completed-task" class="fabutton">
+                                <i class="fa-solid fa-heart"></i>
+                              </button>
+                            </form>
+                            <p class="card-text upvote"> <%= contribution.upvote_count  %> </p>
+                          <% } else if (checkUpvote == false) { %>
+                            <form action="/upvote/<%= contribution.contribution_id %>" method="POST">
+                              <button type="submit" id="completed-task" class="fabutton">
+                                <i class="fa-regular fa-heart">
+                              </button>
+                            </form>
+                            <p class="card-text upvote"> <%= contribution.upvote_count  %> </p>
+                          <% } %>
+                          <form action="/acceptContribution/<%= contribution.contribution_id %>" method="POST">
                           <div><button type="submit" id="accept-vote">Accept contribution</button> </div>
                           </form>
                     </div>
@@ -97,15 +117,35 @@
               </div>
             </div>
         <div class="contributions">
-        <% for (const contibution of contributions) { %>
+        <% for (const contribution of contributions) { %>
           <div class="container mt-5 contribution-body">
               <div class="row">
                 <div class="col-md-4 p-3">
                   <div class="card box-shadow">
                     <div class="card-body">
-                      <h3 class="card-title"> <%= contibution.contributor_name %> </h3>
-                        <p class="card-text"> <%= contibution.content  %> </p>
-                          <p class="card-text upvote"> <i class="fa-solid fa-heart"></i> <%= contibution.upvote_count  %> </p>
+                      <h3 class="card-title"> <%= contribution.contributor_name %> </h3>
+                        <p class="card-text"> <%= contribution.content  %> </p>
+                        <% let checkUpvote = false %>
+                        <% for (const user of contribution.upvote_users) { %>
+                          <% if (cookies == user) { %>
+                            <% checkUpvote = true %>
+                          <% } %>
+                        <% } %>
+                        <% if (checkUpvote == true) { %>
+                          <form action="/downvote/<%= contribution.contribution_id %>" method="POST">
+                            <button type="submit" id="completed-task" class="fabutton">
+                              <i class="fa-solid fa-heart"></i>
+                            </button>
+                          </form>
+                          <p class="card-text upvote"> <%= contribution.upvote_count  %> </p>
+                        <% } else if (checkUpvote == false) { %>
+                          <form action="/upvote/<%= contribution.contribution_id %>" method="POST">
+                            <button type="submit" id="completed-task" class="fabutton">
+                              <i class="fa-regular fa-heart">
+                            </button>
+                          </form>
+                          <p class="card-text upvote"> <%= contribution.upvote_count  %> </p>
+                        <% } %>
                     </div>
                   </div>
                 </div>

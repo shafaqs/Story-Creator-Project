@@ -23,8 +23,8 @@ router.get('/:id', (req, res) => {
         } else {
           // render the story data and contributions
             contributionsRoutes.getAllContributions(id)
-            .then(contribuitons => {
-              res.render("ongoing_single_story_api", { story: stories[0], contributions: contribuitons, cookies: req.cookies.user_id});
+            .then(contributions => {
+              res.render("ongoing_single_story_api", { story: stories[0], contributions: contributions, cookies: req.cookies.user_id});
             });
       }
     })
