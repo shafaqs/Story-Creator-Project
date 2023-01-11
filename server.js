@@ -44,6 +44,7 @@ const markAsCompleted = require("./routes/mark_as_completed.js");
 const acceptContribution = require("./routes/accept_contribution.js");
 const upvoteContribution = require("./routes/upvote_contribution.js");
 const downvoteContribution = require("./routes/downvote_contribution.js");
+const submitNewStory = require("./routes/submit_new_story");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -59,6 +60,7 @@ app.use('/markAsCompleted', markAsCompleted);
 app.use('/acceptContribution', acceptContribution);
 app.use('/upvote', upvoteContribution);
 app.use('/downvote', downvoteContribution);
+app.use('/submitNewStory', submitNewStory);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -84,4 +86,10 @@ app.get('/story/:id', (req, res) => {
   const storyId = req.params.id;
   res.redirect(`/api/story/${storyId}`);
   // send the user somewhere
+});
+
+app.get('/create-new-story', (req, res) => {
+
+  res.render('create_new_story', { cookies: req.cookies.user_id });
+
 });
