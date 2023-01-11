@@ -45,6 +45,7 @@ const acceptContribution = require("./routes/accept_contribution.js");
 const upvoteContribution = require("./routes/upvote_contribution.js");
 const downvoteContribution = require("./routes/downvote_contribution.js");
 const submitNewStory = require("./routes/submit_new_story");
+const swapUser = require("./routes/swap_user");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -61,6 +62,7 @@ app.use('/acceptContribution', acceptContribution);
 app.use('/upvote', upvoteContribution);
 app.use('/downvote', downvoteContribution);
 app.use('/submitNewStory', submitNewStory);
+app.use('/swapUser', swapUser);
 
 // Note: mount other resources here, using the same pattern above
 

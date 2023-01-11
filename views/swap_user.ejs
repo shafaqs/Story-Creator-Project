@@ -31,23 +31,17 @@
 <body>
 
 <!-- <Send your contributions here> -->
-  <div id="create-new-story">
-  <h1 id="create-new-story">Start your tale from here:</h2>
-  <form id="create-new-story" action="/submitNewStory" method="POST">
+  <div id="swap-user">
+  <h1 id="swap-user">Change your cookies here:</h2>
+  <form id="swap-user" action="/swapUser" method="POST">
 
-    <div class="new-story-form__field-wrapper">
-      <label for="new-story-form__title">Title</label>
-      <input type="text" name="title" placeholder="Title" id="new-story-form__title">
-    </div>
-
-    <div class="new-story-form__field-wrapper">
-      <label for="new-story-form__hook">Hook</label>
-      <textarea placeholder="Hook" name="hook" id="new-story-form__hook" cols="30" rows="10"></textarea>
+    <div class="swap-user-id">
+      <label for="swap-user-id">Sign in as:</label>
+      <input type="text" name="userId" placeholder="user-id" id="swap-user-id">
     </div>
 
     <div>
-      <button type="submit" id="submit-new-story">Tell</button>
-      <output name="counter" class="counter" for="new-story-form__hook" id="char-limit">250</output>
+      <button type="submit" id="submit-user-id">Swap</button>
     </div>
   </form>
   </div>
