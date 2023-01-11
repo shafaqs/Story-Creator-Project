@@ -12,7 +12,7 @@ const db = require('../connection');
             FROM stories
             JOIN contributions ON stories.id = story_id
             JOIN users ON contributions.owner_id = users.id
-            WHERE stories.id = $1
+            WHERE stories.id = $1 AND contributions.active = TRUE
             ORDER BY array_length(upvote_users, 1) DESC
             LIMIT $2;`, [story_id, limit])
     .then((result) => {

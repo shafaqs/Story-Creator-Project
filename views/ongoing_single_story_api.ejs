@@ -72,7 +72,7 @@
                           <% } else if (checkUpvote == false) { %>
                             <form action="/upvote/<%= contribution.contribution_id %>" method="POST">
                               <button type="submit" id="completed-task" class="fabutton">
-                                <i class="fa-regular fa-heart">
+                                <i class="fa-regular fa-heart"></i>
                               </button>
                             </form>
                             <p class="card-text upvote"> <%= contribution.upvote_count  %> </p>
@@ -141,7 +141,7 @@
                         <% } else if (checkUpvote == false) { %>
                           <form action="/upvote/<%= contribution.contribution_id %>" method="POST">
                             <button type="submit" id="completed-task" class="fabutton">
-                              <i class="fa-regular fa-heart">
+                              <i class="fa-regular fa-heart"></i>
                             </button>
                           </form>
                           <p class="card-text upvote"> <%= contribution.upvote_count  %> </p>

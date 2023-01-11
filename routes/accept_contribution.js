@@ -10,22 +10,30 @@ const express = require('express');
 const router  = express.Router();
 const acceptContribution = require('../db/queries/acceptContribution');
 const getContributionById = require('../db/queries/getContributionById');
+const getStoryId = require('../db/queries/getStoryId');
+const inactivateContribution = require('../db/queries/inactivateContribution');
 
 //acceptContribution/:id
 router.post('/:id', (req, res) => {
 
-  getContributionById.getContributionById(req.params.id)
-  .then(content => {
-    console.log("content in post: ", content)
-    acceptContribution.acceptContribution(content, 1) //NOTE: Need a way to get story_id
-    .then(
-      res.redirect(req.get('referer'))) //Redirects to current page
+  const contributionId = req.params.id;
+
+  getContributionById.getContributionById(contributionId)
+    .then(content => {
+      console.log("content in post: ", content);
+      getStoryId.getStoryId(contributionId)
+        .then(storyObject => {
+          const storyId = storyObject[0].story_id;
+          acceptContribution.acceptContribution(content, storyId)
+            .then(inactivateContribution.inactivateContribution(storyId)
+              .then(res.redirect(`/api/story/${storyObject[0].story_id}`))
+              )//Redirects to current page
+        })
+    })
     .catch(err => {
       res
         .status(500)
         .json({ error: err.message });
-      })
-
     });
 
 });
