@@ -9,7 +9,7 @@ const db = require('../connection');
  */
  const acceptContribution = function(contribution, story_id) {
   return db.query(`UPDATE stories
-                   SET content = content || $1
+                   SET tales = array_append(tales, $1)
                    WHERE id = $2;`, [contribution, story_id])
     .then(
       console.log(`Story ${story_id} has received addition of ${contribution}`)
