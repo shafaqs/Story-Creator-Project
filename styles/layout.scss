@@ -4,5 +4,15 @@ body,
 html {
   margin: 0;
 
+}
 
+.navbar {
+  justify-content: space-between;
+  height: 120px;
+  position: fixed;
+  
+}
+
+.container {
+  padding-top: 120px;
 }
