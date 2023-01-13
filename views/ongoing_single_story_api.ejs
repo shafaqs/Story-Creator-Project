@@ -25,6 +25,9 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 
+  <!-- Char-counter JS -->
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
 </head>
 
 
@@ -100,6 +103,7 @@
         <% } %>
         <div>
       <!-- <Send your contributions here> -->
+
         <div id="compose-contribution">
         <h2 id="compose-contribution">Compose your contribution</h2>
         <form id="compose-contribution" action="/contribution/<%= story.id %>" method="POST">
@@ -178,6 +182,7 @@
 
         <div>
       <!-- <Send your contributions here> -->
+
        <div id="compose-contribution">
         <h2 id="compose-contribution">Compose your contribution</h2>
         <form id="compose-contribution" action="/contribution/<%= story.id%>" method="POST">

@@ -27,6 +27,9 @@
   <script defer src="/scripts/app.js"></script>
   <script type="text/javascript" src="../public/scripts/app.js"></script>
 
+  <!-- Char-counter JS -->
+  <script type="text/javascript" src="/scripts/hook-char-counter.js"></script>
+
 </head>
 
 
@@ -39,18 +42,18 @@
 
     <div class="new-story-form__field-wrapper">
       <label for="new-story-form__title">What is the title for your story?</label>
-      <input type="text" name="title" placeholder="Title" id="new-story-form__title">
+      <input type="text" name="title" placeholder="Title" id="new-story-form_-title">
     </div>
 
     <div class="new-story-form__field-wrapper">
       <label for="new-story-form__hook">How should the story begin?</label>
-      <textarea placeholder="Once upon a time..." name="hook" id="new-story-form__hook" cols="30" rows="10"></textarea>
+      <textarea placeholder="Once upon a time..." name="hook" id="new-story-form-hook" cols="30" rows="10"></textarea>
+        <div class="new-story-submit">
+          <button type="submit" id="submit-new-story">Post Story</button>
+          <output name="counter" class="counter" for="new-story-form-hook" id="char-limit">500</output>
+        </div>
     </div>
 
-    <div class="new-story-submit">
-      <button type="submit" id="submit-new-story">Post Story</button>
-      <output name="counter" class="counter" for="new-story-form__hook" id="char-limit">250</output>
-    </div>
   </form>
   </div>
 </body>

@@ -14,11 +14,6 @@ const postContribution = require('../db/queries/postContribution');
 
 router.post('/:id', (req, res) => {
 
-  if (!req.body.text) {
-    res.status(400).json({ error: 'invalid request: no data in POST body'});
-    return;
-  }
-
   const ownerId = req.cookies.user_id;
   const content = req.body.text;
   const storyId = req.params.id;
