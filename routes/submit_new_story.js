@@ -15,7 +15,7 @@ const submitNewStory = require('../db/queries/submitNewStory');
 
 router.post('/', (req, res) => {
 
-  if (!req.body.hook) {
+  if (!req.body.hook || !req.body.title) {
     res.status(400).json({ error: 'invalid request: no data in POST body'});
     return;
   }
