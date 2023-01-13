@@ -14,7 +14,13 @@ const swapUser = require('../db/queries/swapUser');
 
 router.get('/', (req, res) => {
 
-  res.render('swap_user', { cookies: req.cookies.user_id });
+  const getUserId = require('../db/queries/getUserId');
+  const userID = req.cookies.user_id;
+
+  getUserId.getUserId(userID)
+   .then(userName => {
+    res.render('swap_user', { cookies: userID, userName: userName[0].name})
+   })
 
 });
 

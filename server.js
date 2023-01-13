@@ -92,6 +92,12 @@ app.get('/story/:id', (req, res) => {
 
 app.get('/create-new-story', (req, res) => {
 
-  res.render('create_new_story', { cookies: req.cookies.user_id });
+  const getUserId = require('./db/queries/getUserId');
+  const userID = req.cookies.user_id;
+
+  getUserId.getUserId(userID)
+    .then(userName => {
+      res.render('create_new_story', { cookies: userID, userName: userName[0].name});
+    })
 
 });
