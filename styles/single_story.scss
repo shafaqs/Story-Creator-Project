@@ -23,33 +23,29 @@
   flex-direction: row;
 }
 
+.author {
+  padding-top: 0.5em;
+}
+
 .container {
   .mt-5 {
     padding-right: 66%;
   }
 }
 
-/*
+/*SCSS mixin for buttons*/
+@mixin btn {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
 
-  head {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0%;
-    margin-right: 0%;
-  }
-
-
-  body {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-    margin-right: 5%;
-    align-self: flex-end;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-*/
+/*Contribution card bodies*/
+.box-shadow {
+  width: 600px;
+}
 
 .contributions {
   display: flex;
@@ -83,34 +79,52 @@
   align-items: flex-start;
 }
 
-/*Upvote button*/
 #completed-task {
   background-color: #f79dcd;
   border-radius: 10px;
 }
 
-.compose-contribution {
-  display: flex;
-  flex-direction: column;
-  float: right;
-  width: 60em !important;
+/*
+Owner side CSS
+*/
+
+/*Button for accepting contributions*/
+#accept-vote {
+  @include btn();
+  background: #42cf1f;
 }
 
-/*Entering contribution form*/
+#mark-as-complete {
+  @include btn();
+  background: #3e89e7;
+  margin-bottom: 1em;
+}
+
+
+/*
+Upvote button
+and contribution submission
+*/
+
+.compose-contribution {
+  text-align: center;
+}
+
 #compose-contribution {
   display: flex;
   flex-direction: column;
-  padding-left: 1em;
+  align-items: center;
+  width: 600px;
 }
 
 #contribution-text {
   height: 10em;
-  width: 30%;
+  width: 500px;
+  resize: none;
 }
 
 #submit-new-contribution {
-  font-family: 'Segoe UI', sans-serif;
-  font-weight: bold;
-  border-radius: 5px;
-  background: #f3e6b5;
+  @include btn();
+  margin-top: 1em;
+  background: #3e89e7;
 }
