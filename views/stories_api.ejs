@@ -31,36 +31,39 @@
           <div class="col-md-4 p-3">
             <div class="card box-shadow">
               <div class="card-body">
-                <h3 class="card-title">
-                  <%= story.title %>
-                </h3>
-                <% if (story.content.length <=300) { %>
-                  <p class="card-text">
-                    <%= story.content %>
-                  </p>
-                  <% } else { %>
+                <div class="card-content">
+                  <h3 class="card-title">
+                    <%= story.title %>
+                  </h3>
+                  <% if (story.content.length <=300) { %>
                     <p class="card-text">
-                      <%= story.content.substring(0,300) %> ......
+                      <%= story.content %>
                     </p>
-                    <% } %>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                          <form action="/story/<%= story.id %>" method="get">
-                            <button type="submit" class="btn btn-sm btn-outline-secondary">
-                              <% if (story.content.length <=300) { %>
-                                To Read
-                                <% } else { %>
-                                  To Read more
-                                  <% } %>
-                            </button>
-                          </form>
-                        </div>
-                        <% if (story.is_completed == true) { %>
-                          <div class="completed">Completed</div>
+                    <% } else { %>
+                      <p class="card-text">
+                        <%= story.content.substring(0,300) %> ......
+                      </p>
+                      <% } %>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <form action="/story/<%= story.id %>" method="get">
+                      <button type="submit" class="btn btn-sm btn-outline-secondary">
+                        <% if (story.content.length <=300) { %>
+                          To Read
                           <% } else { %>
-                            <div class="completed">On-going</div>
-                            <%} %>
-                      </div>
+                            To Read more
+                            <% } %>
+                      </button>
+                    </form>
+                  </div>
+                  <% if (story.is_completed==true) { %>
+                    <div class="completed">Completed</div>
+                    <% } else { %>
+                      <div class="completed">On-going</div>
+                      <%} %>
+                </div>
               </div>
             </div>
           </div>

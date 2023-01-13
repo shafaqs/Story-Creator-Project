@@ -1,15 +1,48 @@
+.navbar-nav {
+  align-items: flex-end;
+  width: 100%;
+  float: right;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+#username-link {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-brand {
+  padding-left: 2em;
+}
+
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   width: 100%;
   padding: 2px;
   padding: 2px;
-  margin: 2px;
+}
 
+.col-md-4.p-3 {
+  height: 350px;
+  margin-bottom: 30px;
+}
 
+.card.box-shadow {
+  height: 350px;
+}
+
+.card-body,
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  justify-content: space-between;
 }
 
 // background: rgb(163, 208, 219);
