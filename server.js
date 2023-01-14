@@ -38,6 +38,14 @@ const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const storiesRoutes = require("./routes/stories-api");
 const singleStoryRoutes = require("./routes/single_story_api.js");
+const getYourStories = require("./routes/user-stories-api.js");
+const postContribution = require("./routes/post_contribution.js");
+const markAsCompleted = require("./routes/mark_as_completed.js");
+const acceptContribution = require("./routes/accept_contribution.js");
+const upvoteContribution = require("./routes/upvote_contribution.js");
+const downvoteContribution = require("./routes/downvote_contribution.js");
+const submitNewStory = require("./routes/submit_new_story");
+const swapUser = require("./routes/swap_user");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -47,6 +55,15 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use("/", storiesRoutes);
 app.use("/api/story", singleStoryRoutes);
+app.use('/api/stories/user', getYourStories);
+app.use('/contribution', postContribution);
+app.use('/markAsCompleted', markAsCompleted);
+app.use('/acceptContribution', acceptContribution);
+app.use('/upvote', upvoteContribution);
+app.use('/downvote', downvoteContribution);
+app.use('/submitNewStory', submitNewStory);
+app.use('/swapUser', swapUser);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -64,4 +81,23 @@ app.get('/login/:id', (req, res) => {
 
   // send the user somewhere
   res.redirect('/');
+});
+
+app.get('/story/:id', (req, res) => {
+
+  const storyId = req.params.id;
+  res.redirect(`/api/story/${storyId}`);
+  // send the user somewhere
+});
+
+app.get('/create-new-story', (req, res) => {
+
+  const getUserId = require('./db/queries/getUserId');
+  const userID = req.cookies.user_id;
+
+  getUserId.getUserId(userID)
+    .then(userName => {
+      res.render('create_new_story', { cookies: userID, userName: userName[0].name});
+    })
+
 });

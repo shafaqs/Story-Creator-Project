@@ -8,12 +8,10 @@ const db = require('../connection');
  * @return {Promise<[{}]>}  A promise to the stories.
  */
 
- const getAllStories = function(limit = 9) {
-  return db.query(`SELECT stories.id as id, name, title, content, is_completed
-                   FROM stories
-                   JOIN users ON users.id = creator_id
-                   ORDER BY update DESC
-                   LIMIT $1;`, [limit])
+ const getUserId = function(user_id) {
+  return db.query(`SELECT name
+                   FROM users
+                   WHERE id = $1;`, [user_id])
                    .then((result) => {
                    return result.rows;
                    })
@@ -22,4 +20,4 @@ const db = require('../connection');
     });
 }
 
-module.exports = { getAllStories };
+module.exports = { getUserId };

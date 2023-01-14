@@ -1,0 +1,63 @@
+/*Styling for /create-new-story*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.create-new-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+#create-new-story {
+  width: 50%;
+}
+
+.create-new-story-label {
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  padding: 0.3em;
+  margin-bottom: 1em;
+}
+
+.new-story-form__field-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  padding-bottom: 1em;
+}
+
+/*Disables resizing of textbox*/
+#new-story-form__hook {
+  resize: none;
+}
+
+
+/*Submission button*/
+.new-story-submit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+
+#submit-new-story {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 1em;
+  background: #1E90FF;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 5px;
+  width: 160px;
+  height: 50px;
+  box-shadow: 0 0 10px;
+  text-decoration: none;
+  cursor: pointer;
+}

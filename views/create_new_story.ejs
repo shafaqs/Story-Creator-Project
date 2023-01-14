@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- to render the api/stories page -->
+
+<head>
+  <title>Story Page</title>
+
+
+    <!-- Font Awesome Library -->
+    <script src="https://kit.fontawesome.com/84c46e54c3.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts Link Tag -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/new_story.css" type="text/css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script type="text/javascript" src="../public/scripts/app.js"></script>
+
+  <!-- Char-counter JS -->
+  <script type="text/javascript" src="/scripts/hook-char-counter.js"></script>
+
+</head>
+
+
+<body>
+  <%- include('partials/header.ejs') %>
+<!-- <Send your contributions here> -->
+  <div class="create-new-story">
+  <h1 class="create-new-story-label">Start your tale from here</h2>
+  <form id="create-new-story" action="/submitNewStory" method="POST">
+
+    <div class="new-story-form__field-wrapper">
+      <label for="new-story-form__title">What is the title for your story?</label>
+      <input type="text" name="title" placeholder="Title" id="new-story-form_-title">
+    </div>
+
+    <div class="new-story-form__field-wrapper">
+      <label for="new-story-form__hook">How should the story begin?</label>
+      <textarea placeholder="Once upon a time..." name="hook" id="new-story-form-hook" cols="30" rows="10"></textarea>
+        <div class="new-story-submit">
+          <button type="submit" id="submit-new-story">Post Story</button>
+          <output name="counter" class="counter" for="new-story-form-hook" id="char-limit">500</output>
+        </div>
+    </div>
+
+  </form>
+  </div>
+</body>
+
+
+</html>

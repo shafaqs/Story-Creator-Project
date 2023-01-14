@@ -19,7 +19,7 @@
     INSERT INTO contributions (
     owner_id, story_id, content, upvote_users)
     VALUES (
-    8, 3, 'Agni, the bright god of the flames, flickered and danced before him. The eyes of animals and birds glinted like stars among the trees as they watched him perform the miracle of mind over matter.',ARRAY ['2', '3', '4', '5', '7']);
+    8, 3, 'His low chant carried throughout the wood: May all parts of my body including those of speech, life, vision, hearing become strong by being close to Brahman. Let there be Peace in me ! Let there be Peace Around Me! peace be to the world, peace to the world, peace to the world. The mantra was pleasing to the divine ears of the gods, and brought harmony to the world.',ARRAY ['2', '3', '4', '5', '7']);
     INSERT INTO contributions (
     owner_id, story_id, content, upvote_users)
     VALUES (

@@ -8,19 +8,20 @@
 
 const express = require('express');
 const router  = express.Router();
-const storiesQueries = require('../db/queries/getAllStories');
+const storiesQueries = require('../db/queries/getYourStories');
 const getUserId = require('../db/queries/getUserId');
 
 // stories page
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
   const userID = req.cookies.user_id;
 
   getUserId.getUserId(userID)
     .then(userName => {
-      storiesQueries.getAllStories()
+      storiesQueries.getYourStories(id)
       .then(stories => {
-        res.render("stories_api", { stories, cookies: userID, userName: userName[0].name });
+        res.render("stories_api", { stories, cookies: userID, userName: userName[0].name});
       })
     })
     .catch(err => {

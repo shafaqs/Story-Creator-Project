@@ -1,8 +1,19 @@
 // See: https://sass-lang.com/
+// Navbar styling
 
 body,
 html {
   margin: 0;
 
+}
 
+.navbar {
+  justify-content: space-between;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+}
+
+.container {
+  padding-top: 120px;
 }

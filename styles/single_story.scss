@@ -8,46 +8,123 @@
   * article layout stuff
   */
 
-  head {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0%;
-    margin-right: 0%;
-  }
+.story-container {
+  display: flex;
+  width: 33%
+}
 
-
-  body {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-    margin-right: 5%;
-    align-self: flex-end;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-.story-body {
+.main-container {
   display: flex;
   flex-direction: row;
-  float: left;
-  width: 70% !important;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.author {
+  padding-top: 0.5em;
+}
+
+.container {
+  .mt-5 {
+    padding-right: 66%;
+  }
+}
+
+/*SCSS mixin for buttons*/
+@mixin btn {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+/*Contribution card bodies*/
+.box-shadow {
+  width: 600px;
 }
 
 .contributions {
   display: flex;
   flex-direction: column;
-  float: right;
-  width: 60em !important;
+  width: 100em !important;
+  margin-left: 30em;
+  margin-top: -100%;
 }
 
-.upvote {
-  display: flex;
-  float: right;
-}
-
-.compose-contribution {
+.contribution-body {
+  padding-right: 0%;
   display: flex;
   flex-direction: column;
+
+}
+
+/*Number of upvotes*/
+.upvote {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: right;
-  width: 60em !important;
+  padding-left: 0.5em;
+  padding-top: 2px;
+}
+
+.upvote-div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#completed-task {
+  background-color: #f79dcd;
+  border-radius: 10px;
+}
+
+/*
+Owner side CSS
+*/
+
+/*Button for accepting contributions*/
+#accept-vote {
+  @include btn();
+  background: #42cf1f;
+}
+
+#mark-as-complete {
+  @include btn();
+  background: #3e89e7;
+  margin-bottom: 1em;
+}
+
+
+/*
+Upvote button
+and contribution submission
+*/
+
+.compose-contribution {
+  text-align: center;
+}
+
+#compose-contribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
+#contribution-text {
+  height: 10em;
+  width: 500px;
+  resize: none;
+}
+
+#submit-new-contribution {
+  @include btn();
+  margin-top: 1em;
+  background: #3e89e7;
 }

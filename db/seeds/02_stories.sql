@@ -1,21 +1,21 @@
 -- Stories table seeds here
 
     INSERT INTO stories (
-    creator_id, title, content, update)
+    creator_id, title, content, update, tellers, tales)
     VALUES (
-    2, 'Goldilocks and the Three Bears', 'Once upon a time there were three bears, who lived together in a house of their own in a wood. One of them was a little, small wee bear; one was a middle-sized bear, and the other was a great, huge bear. One day, after they had made porridge for their breakfast, they walked out into the wood while the porridge was cooling. And while they were walking, a little girl came into the house. This little girl had golden curls that tumbled down her back to her waist, and everyone called her by Goldilocks.', '2022-07-14');
+    2, 'Goldilocks and the Three Bears', 'Once upon a time there were three bears, who lived together in a house of their own in a wood. One of them was a little, small wee bear; one was a middle-sized bear, and the other was a great, huge bear. One day, after they had made porridge for their breakfast, they walked out into the wood while the porridge was cooling. And while they were walking, a little girl came into the house. This little girl had golden curls that tumbled down her back to her waist, and everyone called her by Goldilocks.', '2022-07-14', ARRAY ['Ian'], ARRAY ['Goldilocks went inside. First she tasted the porridge of the great, huge bear, and that was far too hot for her. And then she tasted the porridge of the middle bear, and that was too cold for her. And then she went to the porridge of the little, small wee bear, and tasted that. And that was neither too hot nor too cold, but just right; and she liked it so well, that she ate it all up.']);
     INSERT INTO stories (
-    creator_id, title, content, update)
+    creator_id, title, content, update, tellers, tales)
     VALUES (
-    7, 'The Cat Who Wanted to Be a Monkey', 'Once upon a time, Mother Bushcat, Father Bushcat, and Baby Bushcat were watching the monkey playing. They saw how he drank flower nectar, ate fruit, picked flees from his friends fur, and swung through the trees shrieking and chattering. Indeed, he was a very noisy monkey, and best known for his naughty tricks.', '2023-01-03');
+    7, 'The Cat Who Wanted to Be a Monkey', 'Once upon a time, Mother Bushcat, Father Bushcat, and Baby Bushcat were watching the monkey playing. They saw how he drank flower nectar, ate fruit, picked flees from his friends fur, and swung through the trees shrieking and chattering. Indeed, he was a very noisy monkey, and best known for his naughty tricks.', '2023-01-03', ARRAY ['Sandeep'], ARRAY ['“It’s alright for some,” said Mother Bushcat, after picking up Baby Bushcat for the fifteenth time that day and putting him back in their den.'] );
     INSERT INTO stories (
-    creator_id, title, content, update)
+    creator_id, title, content, update, tellers, tales)
     VALUES (
-    1, 'The gods have a problem', 'Deep in a dark forest of India a holy man was hovering slightly off the ground, just above the carpet of leaves. This wise man, known in the ancient Indian language of Sanskrit as a “rishi”, had once been a king, wealthy and powerful. In old age he went without food, company, and sleep. After depriving his body and focusing his mind for many years, he had achieved the power of levitation, and as he sat deep in a trance, his body rose into the air. He was not without an audience.', '2022-12-31');
+    1, 'The gods have a problem', 'Deep in a dark forest of India a holy man was hovering slightly off the ground, just above the carpet of leaves. This wise man, known in the ancient Indian language of Sanskrit as a “rishi”, had once been a king, wealthy and powerful. In old age he went without food, company, and sleep. After depriving his body and focusing his mind for many years, he had achieved the power of levitation, and as he sat deep in a trance, his body rose into the air. He was not without an audience.', '2022-12-31', ARRAY ['Tiffany'], ARRAY ['Agni, the bright god of the flames, flickered and danced before him. The eyes of animals and birds glinted like stars among the trees as they watched him perform the miracle of mind over matter.']);
     INSERT INTO stories (
-    creator_id, title, content, update, is_completed)
+    creator_id, title, content, update, is_completed, tellers, tales)
     VALUES (
-    6, 'The Boy And The Filberts', 'A Boy was given permission to put his hand into a pitcher to get some filberts. But he took such a great fistful that he could not draw his hand out again. There he stood, unwilling to give up a single filbert and yet unable to get them all out at once. Vexed and disappointed he began to cry. "My boy," said his mother, "be satisfied with half the nuts you have taken and you will easily get your hand out. Then perhaps you may have some more filberts some other time." Do not attempt too much at once.', '2023-01-03', TRUE);
+    6, 'The Boy And The Filberts', 'A Boy was given permission to put his hand into a pitcher to get some filberts. But he took such a great fistful that he could not draw his hand out again. There he stood, unwilling to give up a single filbert and yet unable to get them all out at once. Vexed and disappointed he began to cry. ', '2023-01-03', TRUE, ARRAY ['Tiffany'], ARRAY ['"My boy," said his mother, "be satisfied with half the nuts you have taken and you will easily get your hand out. Then perhaps you may have some more filberts some other time." Do not attempt too much at once.']);
     INSERT INTO stories (
     creator_id, title, content, update, is_completed)
     VALUES (
@@ -25,6 +25,6 @@
     VALUES (
     8, 'The Outing', 'An outburst of anger near the road, a refusal to speak on the path, a silence in the pine woods, a silence across the old railroad bridge, an attempt to be friendly in the water, a refusal to end the argument on the flat stones, a cry of anger on the steep bank of dirt, a weeping among the bushes.', '2022-10-01', TRUE);
     INSERT INTO stories (
-    creator_id, title, content, update, is_completed)
+    creator_id, title, content, update, is_completed, tellers, tales)
     VALUES (
-    5, 'Odd Behavior', 'You see how circumstances are to blame. I am not really an odd person if I put more and more small pieces of shredded kleenex in my ears and tie a scarf around my head: when I lived alone I had all the silence I needed.', '2022-08-25', TRUE);
+    5, 'Odd Behavior', 'You see how circumstances are to blame. I am not really an odd person if I put more and more small pieces of shredded kleenex in my ears and tie a scarf around my head: when I lived alone I had all the silence I needed.', '2022-08-25', TRUE, ARRAY ['Tiffany'], ARRAY ['Nearly every morning, a certain woman in our community comes running out of her house with her face white and her overcoat flapping wildly. She cries out, “Emergency, emergency,” and one of us runs to her and holds her until her fears are calmed. We know she is making it up; nothing has really happened to her. But we understand, because there is hardly one of us who has not been moved at some time to do just what she has done, and every time, it has taken all our strength, and even the strength of our friends and families too, to quiet us.']);
