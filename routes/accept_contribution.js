@@ -18,6 +18,7 @@ const acceptContributor = require('../db/queries/acceptContributor');
 router.post('/:id', (req, res) => {
 
   const contributionId = req.params.id;
+  const userID = req.cookies.user_id;
 
   getContributionById.getContributionById(contributionId)
     .then(contributionObject => {
@@ -30,7 +31,7 @@ router.post('/:id', (req, res) => {
           acceptContribution.acceptContribution(content, storyId)
             .then(acceptContributor.acceptContributor(contributorId, storyId)
               .then(inactivateContribution.inactivateContribution(storyId)
-                .then(res.redirect(`/api/story/${storyObject[0].story_id}`))
+                .then(res.redirect(`/api/stories/user/${userID}`))
               )
             )
         })
@@ -44,5 +45,4 @@ router.post('/:id', (req, res) => {
 });
 
 module.exports = router;
-
 
